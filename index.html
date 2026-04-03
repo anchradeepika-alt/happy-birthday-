@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hey, It’s Your Day</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #fceff9, #e0f7fa);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 500px;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #444;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 25px;
+      background: #ff8a80;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ff5252;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .cards {
+      margin-top: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.5s;
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="landing">
+    <h1>Hey, it’s your day :)</h1>
+    <button onclick="start()">click here</button>
+  </div>
+
+  <div class="container hidden" id="main">
+    <p>
+      I didn’t wanna do anything big or dramatic,<br>
+      but I still wanted to make something for you.<br><br>
+      So… here this is.
+    </p>
+
+    <div class="cards" id="cards">
+      <div class="card">You’re fun to talk to</div>
+      <div class="card">You make things less boring</div>
+      <div class="card">You have good energy</div>
+      <div class="card">You’re just… nice to have around</div>
+    </div>
+
+    <p style="margin-top:20px;">
+      Anyway,<br>
+      Happy Birthday 🎂<br>
+      Hope you have a really good day.
+    </p>
+  </div>
+
+  <script>
+    function start() {
+      document.getElementById("landing").classList.add("hidden");
+      document.getElementById("main").classList.remove("hidden");
+
+      const cards = document.querySelectorAll(".card");
+      cards.forEach((card, index) => {
+        setTimeout(() => {
+          card.classList.add("show");
+        }, index * 500);
+      });
+    }
+  </script>
+
+</body>
+</html>
